@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import ActiveButtonWithIcons from "../../common/components/buttons/active-button-with-icons/ActiveButtonWithIcons";
 
 interface SidebarContainerProps {
   isOpen: boolean;
@@ -12,12 +13,15 @@ const SidebarContainer = styled.div<SidebarContainerProps>`
   position: fixed;
   top: 50px;
   left: 0;
-  transform: ${props => props.isOpen ? 'translateX(0)' : 'translateX(-250px)'}; // Зсув вліво на ширину сайдбару
+  transform: ${(props) =>
+    props.isOpen
+      ? "translateX(0)"
+      : "translateX(-250px)"}; // Зсув вліво на ширину сайдбару
   transition: transform 0.3s ease-in-out;
   z-index: 10;
 `;
 
-const ToggleButton = styled.button`
+const ButtonDiv = styled.div`
   position: absolute;
   left: 15px;
 `;
@@ -30,14 +34,19 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   return (
     <>
-      <ToggleButton onClick={toggleSidebar}>
-        {isOpen ? 'Закрити' : 'Відкрити'}
-      </ToggleButton>
+      <ButtonDiv>
+        <ActiveButtonWithIcons
+          isActive={isOpen}
+          activeIcon={"<"}
+          inactiveIcon={">"}
+          onClick={toggleSidebar}
+        />
+      </ButtonDiv>
       <SidebarContainer isOpen={isOpen}>
         {/* Контент сайдбару */}
       </SidebarContainer>
     </>
   );
-}
+};
 
 export default Sidebar;
