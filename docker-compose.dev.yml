@@ -1,0 +1,43 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:15
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - private
+    env_file: .env.dev
+  nest-service:
+    env_file: .env.dev
+    build:
+      dockerfile: Dockerfile.dev
+      context: "./nest-service"
+    depends_on:
+      - db
+    volumes:
+      - /app/node_modules
+      - ./nest-service:/app
+    expose:
+      - 4000
+    ports:
+      - 4000:4000
+    networks:
+      - private
+      - public
+  react-service:
+    env_file: .env.dev
+    volumes:
+      - ./react-service:/app
+      - /app/node_modules
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./react-service
+    expose:
+      - 3000
+    networks:
+      - public
+networks:
+  public:
+  private:
