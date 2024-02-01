@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ActiveButtonWithIcons from "../../common/components/buttons/active-button-with-icons/ActiveButtonWithIcons";
+import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
 
 interface SidebarContainerProps {
   isOpen: boolean;
@@ -37,8 +38,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       <ButtonDiv>
         <ActiveButtonWithIcons
           isActive={isOpen}
-          activeIcon={"<"}
-          inactiveIcon={">"}
+          activeIcon={<ArrowLeftOutlined style={{color: '#f0f0f0'}} />}
+          inactiveIcon={<ArrowRightOutlined style={{color: '#f0f0f0'}}/>}
           onClick={toggleSidebar}
         />
       </ButtonDiv>
