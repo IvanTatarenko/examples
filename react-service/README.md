@@ -8,6 +8,25 @@ npx create-react-app react-service --template typescript
 ## Modules
 
 ### Main
-The main module is directly related to the Header and Sidebar modules.
-#### Header
-#### Sidebar
+
+### Header
+##### Dependencies
+
+
+### Sidebar
+##### Dependencies
+
+
+
+
+## Components
+
+### Active button with іcons
+#### Dependencies
+
+### Vertical Menu
+#### Dependencies
+- react-router-dom
+```
+npm install react-router-dom
+```
