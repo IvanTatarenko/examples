@@ -6,6 +6,8 @@ services:
       - ./data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    expose:
+      - 5432
     networks:
       - private
     env_file: .env.dev
@@ -17,7 +19,6 @@ services:
     depends_on:
       - db
     volumes:
-      - /app/node_modules
       - ./nest-service:/app
     expose:
       - 4000
