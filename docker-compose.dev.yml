@@ -30,15 +30,15 @@ services:
   react-service:
     env_file: .env.dev
     volumes:
-      - ./react-service:/app
-      - /app/node_modules
+      - ./react-service:/src/app
+      - /src/app/node_modules
     build:
       dockerfile: Dockerfile.dev
       context: ./react-service
     expose:
-      - 3000
+      - 5173
     ports:
-      - 3000:3000
+      - 5173:5173
     networks:
       - public
 networks:

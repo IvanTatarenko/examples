@@ -2,6 +2,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   PrimaryGeneratedColumn,
+  Column
 } from 'typeorm';
 
 export abstract class BaseEntity {
@@ -21,7 +22,7 @@ export abstract class BaseEntity {
   })
   public updated_at: Date;
 
-  @UpdateDateColumn({
+  @Column({
     type: 'timestamp',
     nullable: true,
     select: false,

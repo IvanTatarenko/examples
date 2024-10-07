@@ -2,5 +2,5 @@
 Examples of frequently used modules.
 
 ## Services
-- [React](react-service/README.md)
-- [React](nest-service/README.md)
+- [React README.md](react-service/README.md)
+- [Nest README.md](nest-service/README.md)
