@@ -1,8 +1,0 @@
-{
-  "scripts": {
-    "dev": "docker-compose -f docker-compose.dev.yml --env-file .env.dev up --build",
-    "devdown": "docker-compose -f docker-compose.dev.yml --env-file .env.dev down",
-    "prod": "docker-compose -f docker-compose.prod.yml --env-file .env.prod up --build",
-    "down": "docker-compose -f docker-compose.prod.yml --env-file .env.prod down"
-  }
-}
