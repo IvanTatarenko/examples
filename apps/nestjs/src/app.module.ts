@@ -14,7 +14,7 @@ import { ENV_CONFIG } from 'env-config';
       password: ENV_CONFIG.DB_PASSWORD,
       database: ENV_CONFIG.DB_NAME,
       entities: [__dirname + '../../**/*.entity{.ts,.js}'],
-      synchronize: true,
+      synchronize: ENV_CONFIG.NODE_ENV !== 'prod',
     }),
   ],
   controllers: [AppController],

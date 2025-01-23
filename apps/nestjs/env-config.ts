@@ -13,6 +13,9 @@ function validateEnvVar(name: string, value: string | undefined): string {
 }
 
 export const ENV_CONFIG = {
+  NODE_ENV: validateEnvVar('NODE_ENV', process.env.NODE_ENV),
+  APP_PORT: parseInt(validateEnvVar('APP_PORT', process.env.APP_PORT)),
+
   // database
   DB_HOST: validateEnvVar('POSTGRES_HOST', process.env.POSTGRES_HOST),
   DB_PORT: parseInt(validateEnvVar('POSTGRES_PORT', process.env.POSTGRES_PORT)),
