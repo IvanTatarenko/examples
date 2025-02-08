@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ENV_CONFIG } from 'env-config';
+import { SampleModule } from './modules/sample/sample.module';
 
 @Module({
   imports: [
@@ -16,8 +15,9 @@ import { ENV_CONFIG } from 'env-config';
       entities: [__dirname + '../../**/*.entity{.ts,.js}'],
       synchronize: ENV_CONFIG.NODE_ENV !== 'prod',
     }),
+    SampleModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
